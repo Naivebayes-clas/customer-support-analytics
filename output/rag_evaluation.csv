@@ -1,0 +1,8 @@
+metric,value,mode
+retrieval_accuracy,0.891,retrieval
+faithfulness_enhanced,0.894,enhanced
+faithfulness_standard,0.717,standard
+relevance_enhanced,0.781,enhanced
+relevance_standard,0.801,standard
+correctness_enhanced,0.623,enhanced
+correctness_standard,0.57,standard

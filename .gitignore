@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# Large data files (re-download via data/README.md)
+data/*.csv
+data/*.zip
+data/knowledge_base/
+data/knowledge_base_ravenstack/
+data/qa_pairs.json
+data/qa_pairs_ravenstack.json
+
+# Large outputs
+output/*.parquet
+output/*.duckdb
+output/csv/
+output/dashboard/
+
+# OS / IDE
+.DS_Store
+*.swp
+.vscode/
+.idea/
