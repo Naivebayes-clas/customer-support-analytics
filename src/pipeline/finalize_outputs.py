@@ -294,7 +294,7 @@ ax.set_title("Markov Steady-State vs. Observed State Distribution")
 ax.legend()
 plt.savefig(f"{OUT}/markov_comparison.png")
 plt.close()
-print("✓ markov_comparison.png")
+print("markov_comparison.png")
 
 
 # ─── 5b. Segmentation: clusters + treatment effect by segment ───────────────
@@ -404,7 +404,7 @@ ax2.grid(axis="y", alpha=0.3, linestyle="--")
 plt.tight_layout()
 plt.savefig(f"{OUT}/segments.png", dpi=150, bbox_inches="tight")
 plt.close()
-print(f"✓ segments.png (clusters + treatment effect by segment)")
+print(f"segments.png (clusters + treatment effect by segment)")
 
 # Print heterogeneous effect summary
 print(f"\n  Churn rate by Cluster × Treatment:")
@@ -706,7 +706,7 @@ ax.set_title(f"Sequential Monitoring (Bonferroni, α={alpha}, {n_looks} looks)")
 ax.legend()
 plt.savefig(f"{OUT}/sequential.png")
 plt.close()
-print("✓ sequential.png")
+print("sequential.png")
 
 
 # ─── 7b. Sequential monitoring: TREATMENT EFFECT over interim looks ──────────
@@ -789,7 +789,7 @@ plt.suptitle("Sequential Monitoring: RAG Treatment Effect (HR=0.80, Bonferroni �
 plt.tight_layout()
 plt.savefig(f"{OUT}/sequential.png", dpi=150, bbox_inches="tight")
 plt.close()
-print("✓ sequential.png (treatment-specific)")
+print("sequential.png (treatment-specific)")
 
 
 # ─── 8. Power curve ──────────────────────────────────────────────────────────
@@ -811,7 +811,7 @@ ax.set_title("Power Curve (Two-Proportion Test)")
 ax.legend()
 plt.savefig(f"{OUT}/power_curve.png")
 plt.close()
-print("✓ power_curve.png")
+print("power_curve.png")
 
 
 # ─── 8b. Power curve: TREATMENT-SPECIFIC ─────────────────────────────────────
@@ -847,7 +847,7 @@ ax.spines["top"].set_visible(False)
 ax.spines["right"].set_visible(False)
 plt.savefig(f"{OUT}/power_curve.png", dpi=150, bbox_inches="tight")
 plt.close()
-print("✓ power_curve.png (treatment-specific)")
+print("power_curve.png (treatment-specific)")
 
 
 # ─── 9. Dashboard summary: TREATMENT EFFECT (4 panels) ──────────────────────
@@ -981,7 +981,7 @@ plt.suptitle("RAG Treatment Effect Dashboard (Simulated, n=5,000)",
 plt.tight_layout()
 plt.savefig(f"{OUT}/dashboard_summary.png", dpi=150, bbox_inches="tight")
 plt.close()
-print("✓ dashboard_summary.png (treatment effect, 4 panels)")   
+print("dashboard_summary.png (treatment effect, 4 panels)")   
 
 
 # ─── 10. RAG evaluation CSV + metrics plot ───────────────────────────────────
@@ -993,7 +993,7 @@ rag_results = {
     "mode": ["retrieval", "enhanced", "standard", "enhanced", "standard", "enhanced", "standard"]
 }
 pd.DataFrame(rag_results).to_csv(f"{OUT}/rag_evaluation.csv", index=False)
-print("✓ rag_evaluation.csv")
+print("rag_evaluation.csv")
 
 # ─── 10b. RAG metrics: Full causal chain (4 panels) ─────────────────────────
 fig, axes = plt.subplots(2, 2, figsize=(13, 10))
@@ -1116,7 +1116,7 @@ plt.suptitle("RAG Evaluation → Mechanism → Churn (Full Causal Chain)",
 plt.tight_layout()
 plt.savefig(f"{OUT}/rag_metrics.png", dpi=150, bbox_inches="tight")
 plt.close()
-print("✓ rag_metrics.png (full causal chain, 4 panels)")   
+print("rag_metrics.png (full causal chain, 4 panels)")   
 
 
 # ─── 11. Dashboard directory (CSVs) ─────────────────────────────────────────
@@ -1127,7 +1127,7 @@ if os.path.exists(f"{OUT}/csv"):
         shutil.copy(f"{OUT}/csv/{f}", f"{OUT}/dashboard/{f}")
 print("✓ dashboard/ (CSVs copied)")
 
-print("\n✅ All outputs generated in ./output/")
+print("\n All outputs generated in ./output/")
 print(f"Files: {len(os.listdir(OUT))} items")   
 
 # ─── 12. Formal CSAT comparison by plan tier ─────────────────────────────────
