@@ -43,4 +43,4 @@ echo "════════════════════════�
 python -m src.pipeline.finalize_outputs
 
 echo ""
-echo "✅ All done. Outputs in ./output/"
+echo "All done. Outputs in ./output/"
