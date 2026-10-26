@@ -15,7 +15,7 @@ Here's each step, in order, with the plot that shows it.
 
 ### Step 1: Who are our customers? (Segmentation)
 
-![Dashboard Summary](/home/barnap86/github_docker/customer-support-analytics/output/segments.png)
+![Dashboard Summary](output/segments.png)
 
 Before you can measure the effect of an AI agent, you need to know *who it's serving*. We run K-Means (K=4) on real account features — MRR, ticket volume, resolution time, satisfaction, usage, and error counts.
 
@@ -29,7 +29,7 @@ The right panel shows the simulated treatment effect by segment: the RAG agent r
 
 ### Step 2: Does the RAG system retrieve the right answer? (RAG Evaluation)
 
-![Dashboard Summary](/home/barnap86/github_docker/customer-support-analytics/output/rag_metrics.png)
+![Dashboard Summary](output/rag_metrics.png)
 
 The AI agent's "brain" is a RAG pipeline: it searches a knowledge base (21 product help articles) and generates an answer from what it finds. We evaluate this with 26 real Q&A pairs.
 
@@ -47,7 +47,7 @@ Retrieval accuracy (top-1) is 80.8% — the system finds the right document 4 ou
 
 ### Step 3: Does the handling style change outcomes? (A/B Testing)
 
-![Dashboard Summary](/home/barnap86/github_docker/customer-support-analytics/output/ci_summary.png)
+![Dashboard Summary](output/ci_summary.png)
 
 In the real RavenStack ticket data, we compare escalated vs. non-escalated tickets using propensity score matching (63 matched pairs). The result: escalation is associated with +0.19 CSAT, but it's not statistically significant (p = 0.22). The sample is too small.
 
@@ -59,11 +59,11 @@ The forest plot shows the effect across segments: the only significant finding i
 
 ### Step 4: What predicts churn? (Survival Analysis)
 
-![Dashboard Summary](/home/barnap86/github_docker/customer-support-analytics/output/cox_forest_treatment.png)
+![Dashboard Summary](output/cox_forest_treatment.png)
 
-![Dashboard Summary](/home/barnap86/github_docker/customer-support-analytics/output/figures/rag_prompt_to_churn_n500.png)
+![Dashboard Summary](output/figures/rag_prompt_to_churn_n500.png)
 
-![Dashboard Summary](/home/barnap86/github_docker/customer-support-analytics/output/figures/rag_prompt_to_churn_n5000.png)
+![Dashboard Summary](output/figures/rag_prompt_to_churn_n5000.png)
 
 We fit a Cox proportional hazards model on 500 real accounts (110 churn events). No covariate is statistically significant at α = 0.05 — the dataset is underpowered to detect moderate hazard ratios. The largest point estimate (Enterprise HR = 2.81, p = 0.177) is directionally interesting but not confirmable.
 
@@ -77,7 +77,7 @@ The treatment-specific forest plot (simulated, n=5,000) shows what the Cox model
 
 ### Step 5: What's the full causal chain? (RAG → Churn Simulation)
 
-![Dashboard Summary](/home/barnap86/github_docker/customer-support-analytics/output/dashboard_summary.png)
+![Dashboard Summary](output/dashboard_summary.png)
 
 This is the money plot. Four panels, reading left-to-right, top-to-bottom:
 
@@ -95,9 +95,9 @@ All four panels are mutually consistent: better RAG → faster resolution + high
 
 ### Step 6: How much data do you need? (Power + Sequential Monitoring)
 
-![Dashboard Summary](/home/barnap86/github_docker/customer-support-analytics/output/power_curve.png)
+![Dashboard Summary](output/power_curve.png)
 
-![Dashboard Summary](/home/barnap86/github_docker/customer-support-analytics/output/sequential.png)
+![Dashboard Summary](output/sequential.png)
 
 The power curve answers: "How many accounts do I need to detect the effect?"
 
@@ -119,7 +119,7 @@ The sequential monitoring plot shows what happens if you check results at 5 inte
 
 ### Step 7: How does the AI agent change ticket flow? (Markov Chain)
 
-![Dashboard Summary](/home/barnap86/github_docker/customer-support-analytics/output/figures/markov_by_treatment.png)
+![Dashboard Summary](output/figures/markov_by_treatment.png)
 
 A support ticket moves through states: `open → in_progress → (escalated) → resolved`. The RAG agent changes the *transition probability* from `in_progress` to `escalated`:
 
